@@ -31,11 +31,11 @@ const App = () => {
             if (route.name === 'Home') {
               iconName = focused ? 'home-Sharp' : 'home-outline';
             } else if (route.name === 'Search') {
-              iconName = focused ? 'search' : 'ios-search-outline';
+              iconName = focused ? 'search' : 'search-outline';
             } else if (route.name === 'Activity') {
-              iconName = focused ? 'ios-heart' : 'ios-heart-outline';
+              iconName = focused ? 'heart' : 'heart-outline';
             } else if (route.name === 'Profile') {
-              iconName = focused ? 'ios-person-circle' : 'ios-person-outline';
+              iconName = focused ? 'person-circle' : 'person-outline';
             }
             return <Ionic name={iconName} size={size} color={color} />;
           },
