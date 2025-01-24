@@ -22,7 +22,7 @@ const ActivityRecommend = ({data}) => {
                 navigation.push('FriendProfile', {
                   name: data.name,
                   profileImage: data.profileImage,
-                  follow: follow,
+                  follow: data.follow,
                   post: data.posts,
                   followers: data.followers,
                   following: data.following,
