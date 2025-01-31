@@ -1,10 +1,24 @@
 import {View, Text, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
-import React from 'react';
+import React, {useState, useReducer} from 'react';
 import ProfileButton from '../compo/ProfileButton';
 import ProfileBody from '../compo/ProfileBody';
 import Entypo from 'react-native-vector-icons/Entypo';
+import Counter from '../compo/Counter';
 
+function reducer(state, action) {
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + action.data;
+    case 'DECREMENT':
+      return state - action.data;
+    default:
+      return state;
+  }
+}
 const Profile = () => {
+  const [value, dispatch] = useReducer(reducer, 0);
+  const onIncrement = () => dispatch({type: 'INCREMENT', data: 1});
+  const onDecrement = () => dispatch({type: 'DECREMENT', data: 1});
   let circles = [];
   let numberOfCircles = 10;
   for (let index = 0; index < numberOfCircles; index++) {
@@ -20,6 +34,8 @@ const Profile = () => {
       </View>,
     );
   }
+
+  const counter = (state = 0, action) => {};
 
   return (
     <SafeAreaView style={styles.Container}>
@@ -46,6 +62,13 @@ const Profile = () => {
             {circles}
           </ScrollView>
         </View>
+      </View>
+      <View>
+        <Counter
+          value={value}
+          onIncrement={onIncrement}
+          onDecrement={onDecrement}
+        />
       </View>
     </SafeAreaView>
   );
